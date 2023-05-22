@@ -1,0 +1,44 @@
+<div class="d-flex justify-content-center">
+  <form>
+    <div class="row">
+      <div class="mb-3">
+        <label for="startDate" class="form-label">Start Date</label>
+        <input
+          type="date"
+          class="form-control"
+          id="startDate"
+          name="startDate"
+          aria-describedby="startDate"
+          #startDate
+          required
+        />
+        <div id="startDate" class="form-text">
+          Please enter the start date of the task
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="estimateDays" class="form-label">Estimate Days</label>
+        <input
+          type="number"
+          class="form-control"
+          id="estimateDays"
+          name="estimateDays"
+          #estimateDays
+          required
+        />
+
+        <div id="estimateDays" class="form-text">
+          Please enter the required ynumber of days
+        </div>
+      </div>
+      <h3 *ngIf="completionDate">
+        Task Completion Date is - {{ completionDate }}
+      </h3>
+      <a
+        (click)="submit(startDate.value, estimateDays.value)"
+        class="btn btn-primary"
+        >Submit</a
+      >
+    </div>
+  </form>
+</div>
