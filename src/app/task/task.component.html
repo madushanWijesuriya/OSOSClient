@@ -15,6 +15,9 @@
         <div id="startDate" class="form-text">
           Please enter the start date of the task
         </div>
+        <div *ngIf="!isValidStartDate" style="color: red">
+          Please enter a valid Start Date.
+        </div>
       </div>
       <div class="mb-3">
         <label for="estimateDays" class="form-label">Estimate Days</label>
@@ -29,6 +32,9 @@
 
         <div id="estimateDays" class="form-text">
           Please enter the required ynumber of days
+        </div>
+        <div *ngIf="!isValidEstimate" style="color: red">
+          Please enter a valid Estimate.
         </div>
       </div>
       <h3 *ngIf="completionDate">

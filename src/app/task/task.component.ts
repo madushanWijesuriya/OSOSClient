@@ -10,12 +10,21 @@ export class TaskComponent {
   startDate: string = '';
   estimateDays: number = 0;
   completionDate: string = '';
+  isValidStartDate: boolean = true;
+  isValidEstimate: boolean = true;
   submit(startDate: string, estimateDays: string) {
-    this.getCompletionDate(startDate, estimateDays);
-    this.clear();
+    if (this.formValidation(startDate, estimateDays)) {
+      this.getCompletionDate(startDate, estimateDays);
+      this.clear();
+    }
   }
   formValidation(startDate: string, estimateDays: string) {
-    if (!startDate) return;
+    this.isValidStartDate = true;
+    this.isValidEstimate = true;
+    if (!startDate) return (this.isValidStartDate = false);
+    else if (!estimateDays) return (this.isValidEstimate = false);
+
+    return true;
   }
   getCompletionDate(startDate: string, estimateDays: string) {
     this.apiService
